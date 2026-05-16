@@ -1,26 +1,145 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* === Typography === */
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+
+  /* === Brand Color Palette === */
+  --color-purple: #702F8A;
+  --color-purple-light: #F4EFF8;
+  --color-white: #FDFBFF;
+  --color-black: #050505;
+  --color-gray: #6B6B6B;
+  --color-gray-light: #F5F5F5;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* === Base Layer === */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    @apply bg-white text-black;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+    background-image: radial-gradient(ellipse at top, rgba(112, 47, 138, 0.03) 0%, rgba(255, 255, 255, 1) 100%);
+    background-attachment: fixed;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif text-black font-medium tracking-tight;
+  }
+
+  ::selection {
+    background: #F4EFF8;
+    color: #702F8A;
+  }
+
+  /* Smooth focus ring */
+  :focus-visible {
+    outline: 2px solid #702F8A;
+    outline-offset: 3px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* === Custom Utilities === */
+@layer utilities {
+
+  /* Subtle Purple gradient text */
+  .text-gradient-purple {
+    background: linear-gradient(135deg, #702F8A 0%, #4A1A5D 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Ambient glow for minimal sections */
+  .glow-purple {
+    box-shadow: 0 0 80px rgba(112, 47, 138, 0.1), 0 0 160px rgba(112, 47, 138, 0.05);
+  }
+
+  /* Thin rule */
+  .rule-purple {
+    @apply w-12 h-px bg-purple/40;
+  }
+
+  /* Editorial eyebrow text */
+  .eyebrow {
+    @apply text-xs uppercase tracking-[0.25em] font-medium;
+  }
+
+  /* Letter-spaced CTA */
+  .cta-text {
+    @apply text-sm uppercase tracking-[0.18em] font-medium;
+  }
+
+  /* Section padding rhythm */
+  .section-py {
+    @apply py-6 md:py-6 lg:py-6;
+  }
+
+  .section-px {
+    @apply px-6 md:px-12 lg:px-24;
+  }
+}
+
+/* === Custom Animations === */
+@keyframes float-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+
+  100% {
+    background-position: 400px 0;
+  }
+}
+
+@keyframes pulse-olive {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(139, 144, 132, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 0 8px rgba(139, 144, 132, 0);
+  }
+}
+
+/* === Scrollbar Styling === */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFFFFF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(112, 47, 138, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(112, 47, 138, 0.5);
 }
