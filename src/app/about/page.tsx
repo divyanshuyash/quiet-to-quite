@@ -44,6 +44,24 @@ const values = [
   },
 ];
 
+const recognition = [
+  {
+    publication: "Mid-Day",
+    title: "Next Big Brands of India – March 2026",
+    href: "https://www.mid-day.com/buzz/article/next-big-brands-of-india-march-2026-9210",
+  },
+  {
+    publication: "HR Today",
+    title: "The Role of Leadership in Building Organisations (Authored by Jayita Roy)",
+    href: "https://hrtoday.in/insights/the-role-of-leadership-in-building-organisations/",
+  },
+  {
+    publication: "Indiaspark",
+    title: "Quiet to Quite™ Founder Feature",
+    href: "https://www.linkedin.com/posts/indiaspark_quiettoquite-womenintech-introvertpower-activity-7445793095637692416-OgYH?",
+  },
+];
+
 export default function About() {
   return (
     <div className="flex flex-col w-full bg-white text-black font-sans selection:bg-purple/20">
@@ -247,6 +265,65 @@ export default function About() {
                 <h3 className="font-serif text-2xl md:text-3xl text-black mb-6 leading-[1.2]">{v.title}</h3>
                 <p className="text-black font-sans text-base leading-[1.8] font-light">{v.body}</p>
               </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── INDUSTRY RECOGNITION ── */}
+      <section className="py-12 md:py-6 px-6 md:px-12 lg:px-24 bg-white border-t border-black/5">
+        <div className="max-w-[1400px] mx-auto">
+          <motion.div
+            className="text-center mb-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+          >
+            <motion.div variants={fadeUp} className="flex items-center justify-center gap-4 mb-6">
+              <span className="w-12 h-px bg-purple/40" />
+              <span className="text-xs uppercase tracking-[0.25em] font-medium text-purple">Press & Features</span>
+              <span className="w-12 h-px bg-purple/40" />
+            </motion.div>
+            <motion.h2
+              variants={fadeUp}
+              className="font-serif text-4xl md:text-5xl lg:text-[4rem] text-black leading-[1.05]"
+            >
+              Industry Recognition
+            </motion.h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {recognition.map((item) => (
+              <motion.a
+                key={item.href}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-80px" }}
+                variants={fadeUp}
+                className="group p-10 bg-white border border-black/5 hover:border-purple/40 hover:shadow-2xl transition-all duration-700 flex flex-col"
+              >
+                <span className="text-[10px] uppercase tracking-[0.25em] font-medium text-purple mb-4">Publication</span>
+                <h3 className="font-serif text-2xl md:text-3xl text-black mb-4 leading-[1.2]">{item.publication}</h3>
+                <p className="text-black/80 font-sans text-base leading-[1.8] font-light mb-8">{item.title}</p>
+                <span className="mt-auto inline-flex items-center gap-3 text-xs uppercase tracking-[0.2em] font-semibold text-black group-hover:text-purple transition-colors duration-400">
+                  Read Article
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    className="transition-transform duration-400 group-hover:translate-x-1"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </motion.a>
             ))}
           </div>
         </div>
