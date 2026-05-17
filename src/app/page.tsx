@@ -18,6 +18,9 @@ const stagger = {
   visible: { opacity: 1, transition: { staggerChildren: 0.25, delayChildren: 0.15 } },
 };
 
+const heroLineOne = ["Confidence", "is", "overrated."];
+const heroLineTwo = ["Signal", "clarity", "is", "everything."];
+
 const stats = [
   { value: "22+", label: "Years in Global HR" },
   { value: "12", label: "Countries Led" },
@@ -56,11 +59,25 @@ export default function Home() {
             variants={fadeUp}
             className="font-serif text-5xl md:text-7xl lg:text-[5.5rem] xl:text-[6.5rem] leading-[1.05] tracking-tight text-black mb-4"
           >
-            Confidence is{" "}
-            <span className="font-serif font-medium text-black">overrated.</span>
+            {heroLineOne.map((word, index) => (
+              <span
+                key={`hero-line-1-${word}-${index}`}
+                className={`hero-word ${word === "overrated." ? "font-medium" : ""}`}
+                style={{ animationDelay: `${index * 0.65}s` }}
+              >
+                {word}{index < heroLineOne.length - 1 ? " " : ""}
+              </span>
+            ))}
             <br />
-            Signal clarity{" "}
-            <span className="font-serif italic font-medium text-purple">is everything.</span>
+            {heroLineTwo.map((word, index) => (
+              <span
+                key={`hero-line-2-${word}-${index}`}
+                className={`hero-word ${word === "everything." ? "italic font-medium" : ""}`}
+                style={{ animationDelay: `${(heroLineOne.length + index) * 0.65}s` }}
+              >
+                {word}{index < heroLineTwo.length - 1 ? " " : ""}
+              </span>
+            ))}
           </motion.h1>
 
           {/* Subheadline */}
