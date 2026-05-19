@@ -106,7 +106,7 @@ export default function About() {
             >
               <div className="relative aspect-[4/5] bg-white overflow-hidden shadow-2xl">
                 <Image
-                  src="/images/editorial_portrait_earth.png"
+                  src="/images/jayita-portrait-about.png"
                   alt="Jayita Roy - Executive Coach"
                   fill
                   className="object-cover"

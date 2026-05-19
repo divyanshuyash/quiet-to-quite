@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
@@ -55,12 +56,18 @@ export default function Header() {
           {/* Logo */}
           <Link
             href="/"
-            className={`font-serif text-xl md:text-2xl tracking-wide transition-colors duration-500 ${
-              !scrolled && isDarkHeroPage ? "text-white" : "text-black"
-            }`}
+            aria-label="Quiet to Quite"
+            className="flex items-center transition-opacity duration-500 hover:opacity-80"
           >
-            Quiet <span className="font-serif italic text-purple">to</span> Quite
-            <span className="text-[0.6em] align-super ml-1 text-purple opacity-80">™</span>
+            <span className="relative h-5 w-28 md:h-7 md:w-36">
+              <Image
+                src="/images/quiet-to-quite-logo-cropped.png"
+                alt="Quiet to Quite"
+                fill
+                className="object-contain"
+                priority
+              />
+            </span>
           </Link>
 
           {/* Desktop Nav */}

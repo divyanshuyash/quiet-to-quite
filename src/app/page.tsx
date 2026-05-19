@@ -151,7 +151,7 @@ export default function Home() {
               className="relative w-full aspect-[4/5] bg-sand overflow-hidden"
             >
               <Image
-                src="/images/editorial_portrait_earth.png"
+                src="/images/jayita-portrait.png"
                 alt="Jayita - Executive Coach"
                 fill
                 className="object-cover"
@@ -261,27 +261,32 @@ export default function Home() {
               variants={fadeUp}
               className="font-serif text-4xl md:text-5xl lg:text-[4rem] text-black leading-[1.05]"
             >
-              Two paths. One destination.
+              Three paths. One destination.
             </motion.h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-16 max-w-6xl mx-auto">
             {[
               {
                 number: "01",
-                title: "Quiet Authority Reset",
-                tag: "30-Day Masterclass",
-                desc: "A digital immersion for quiet mid-career women tired of being 'reliable' but overlooked for the next level.",
-                href: "/services",
-                price: "₹5,999",
+                title: "High-Touch 1:1",
+                tag: "Start Here",
+                desc: "Begin with a complimentary 45-minute leadership coaching call to clarify your goals and next steps.",
+                href: "https://elevate.quiettoquite.com/web/lite/events/69ce103a8a93be6046808486",
               },
               {
                 number: "02",
-                title: "Quiet Authority Accelerator",
-                tag: "1:1 Advisory",
-                desc: "An intimate, high-touch advisory container for women ready to fast-track their next role or board-level opportunity.",
-                href: "/services",
-                price: "Bespoke",
+                title: "Quiet Authority Reset",
+                tag: "Core Program",
+                desc: "A focused reset to align how you see yourself and how others see you, so visibility matches performance.",
+                href: "https://elevate.quiettoquite.com/web/courses",
+              },
+              {
+                number: "03",
+                title: "Perception Reset",
+                tag: "Focused Session",
+                desc: "See your career through a new lens and decode the system that shapes leadership perception.",
+                href: "https://elevate.quiettoquite.com/l/5246e16263",
               },
             ].map((path, i) => (
               <motion.div
@@ -304,7 +309,7 @@ export default function Home() {
                     {path.desc}
                   </p>
                 </div>
-                <div className="flex items-center justify-between border-t border-black/5 pt-8 mt-auto">
+                <div className="flex items-center justify-start border-t border-black/5 pt-8 mt-auto">
                   <Link
                     href={path.href}
                     className="group/link inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-black hover:text-purple transition-colors duration-400"
@@ -324,7 +329,6 @@ export default function Home() {
                       <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
                   </Link>
-                  <span className="font-serif text-xl text-purple/70">{path.price}</span>
                 </div>
               </motion.div>
             ))}

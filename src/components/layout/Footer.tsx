@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -17,10 +18,17 @@ export default function Footer() {
             <div className="md:col-span-5">
               <Link
                 href="/"
-                className="font-serif text-3xl md:text-4xl tracking-wide block mb-6 text-black hover:text-purple transition-colors duration-500"
+                aria-label="Quiet to Quite"
+                className="inline-flex items-center mb-6 transition-opacity duration-500 hover:opacity-80"
               >
-                Quiet to Quite
-                <span className="text-[0.5em] align-super ml-1 text-purple">™</span>
+                <span className="relative h-5 w-28 md:h-7 md:w-36">
+                  <Image
+                    src="/images/quiet-to-quite-logo-cropped.png"
+                    alt="Quiet to Quite"
+                    fill
+                    className="object-contain"
+                  />
+                </span>
               </Link>
               <p className="text-black text-sm md:text-base max-w-sm font-light leading-relaxed mb-6">
                 For high-performing, introverted women who deliver exceptional results

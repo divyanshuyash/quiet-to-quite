@@ -21,43 +21,54 @@ const stagger = {
 const services = [
   {
     number: "01",
-    tag: "Path One",
-    title: "Quiet Authority Reset",
-    subtitle: "30-Day Leadership Perception Reset",
+    tag: "Start Here",
+    title: "High-Touch 1:1",
+    subtitle: "Complimentary Leadership Coaching Call",
     description:
-      "For quiet mid-career women tired of being 'reliable' but overlooked for the next level. Reset how you see yourself, how others see you, and leave with an implementable visibility plan.",
+      "Always begin with a complimentary 45-minute call with Jayita to clarify your leadership goals and the support you need next.",
     features: [
-      "3 focused digital learning days",
-      "Weekly live group coaching calls",
-      "Targeted visibility-building tools",
-      "Private peer community access",
-      "Personal Visibility Gap Assessment",
+      "Book a complimentary Leadership Coaching Call",
+      "45-minute private session with Jayita Roy",
+      "Web conferencing details provided upon completion",
     ],
-    price: "₹5,999",
-    cta: "Take the Assessment",
-    href: "/assessment",
+    cta: "Book the Complimentary Call",
+    href: "https://elevate.quiettoquite.com/web/lite/events/69ce103a8a93be6046808486",
     side: "left",
-    image: "/images/service_reset.png",
+    image: "/images/service_advisory.png",
   },
   {
     number: "02",
-    tag: "Path Two",
-    title: "Quiet Authority Accelerator",
-    subtitle: "High-Touch 1:1 Advisory",
+    tag: "Core Program",
+    title: "Quiet Authority Reset",
+    subtitle: "Leadership Perception Reset",
     description:
-      "An intimate advisory container for women ready to fast-track their next role, promotion, or board-level opportunity. Entirely bespoke. Entirely on your terms.",
+      "A focused reset to align how you see yourself and how others see you, so visibility matches performance.",
     features: [
-      "Bespoke promotion strategy development",
-      "Stakeholder perception reshaping",
-      "Executive presence calibration",
-      "Monthly deep-dive strategy sessions",
-      "Direct access between sessions",
+      "Reframe perception and visibility gaps",
+      "Clarify leadership narrative and positioning",
+      "Create a practical next-step visibility plan",
     ],
-    price: "Custom Investment",
-    cta: "Apply for Advisory",
-    href: "mailto:quiettoquite@gmail.com",
+    cta: "Explore Quiet Authority Reset",
+    href: "https://elevate.quiettoquite.com/web/courses",
     side: "right",
-    image: "/images/service_advisory.png",
+    image: "/images/service_reset.png",
+  },
+  {
+    number: "03",
+    tag: "Focused Session",
+    title: "Perception Reset",
+    subtitle: "See Your Career Clearly",
+    description:
+      "Step back and see your career through a new lens, understand why performance alone does not drive growth, and decode the system.",
+    features: [
+      "See your career through a new lens",
+      "Decode the reliable but not promotable trap",
+      "Leave with clarity on where you stand and why",
+    ],
+    cta: "Start Perception Reset",
+    href: "https://elevate.quiettoquite.com/l/5246e16263",
+    side: "left",
+    image: "/images/jayita-portrait.png",
   },
 ];
 
@@ -152,7 +163,7 @@ export default function Services() {
                   ))}
                 </ul>
 
-                {/* Price + CTA */}
+                {/* CTA */}
                 <div className="flex flex-col sm:flex-row sm:items-center gap-8">
                   <Link
                     href={s.href}
@@ -163,7 +174,6 @@ export default function Services() {
                       <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
                   </Link>
-                  <span className="font-serif text-xl font-medium text-purple/70">{s.price}</span>
                 </div>
               </motion.div>
             </motion.div>
