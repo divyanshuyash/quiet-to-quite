@@ -138,7 +138,7 @@ export default function Home() {
       </section>
 
       {/* ── THE ISSUE (Editorial Split) ── */}
-      <section className="py-12 md:py-6 px-6 md:px-12 lg:px-24 bg-white">
+      <section className="py-8 md:py-6 px-4 md:px-12 lg:px-24 bg-white">
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-8 items-center">
 
@@ -222,12 +222,12 @@ export default function Home() {
       </section>
 
       {/* ── FEATURED IN ── */}
-      <section className="py-6 px-6 bg-white border-y border-black/5">
+      <section className="py-6 px-4 md:px-6 bg-white border-y border-black/5">
         <div className="max-w-[1400px] mx-auto">
-          <p className="text-center text-[10px] uppercase text-black tracking-[0.3em] font-medium mb-6">
+          <p className="text-center text-[10px] uppercase text-black tracking-[0.3em] font-medium mb-4 md:mb-6">
             22 Years Elevating Leaders Across
           </p>
-          <div className="flex flex-wrap justify-center gap-12 md:gap-24 items-center">
+          <div className="flex flex-wrap justify-center gap-6 md:gap-12 lg:gap-24 items-center">
             {["Global Technology", "Investment Banking", "Management Consulting", "Healthcare"].map(
               (sector) => (
                 <span
@@ -243,29 +243,29 @@ export default function Home() {
       </section>
 
       {/* ── PATHS PREVIEW ── */}
-      <section className="py-12 md:py-6 px-6 md:px-12 lg:px-24 bg-white">
+      <section className="py-8 md:py-6 px-4 md:px-12 lg:px-24 bg-white">
         <div className="max-w-[1400px] mx-auto">
           <motion.div
-            className="text-center mb-8"
+            className="text-center mb-6 md:mb-8"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
           >
-            <motion.div variants={fadeUp} className="flex items-center justify-center gap-4 mb-6">
-              <span className="w-12 h-px bg-purple/40" />
+            <motion.div variants={fadeUp} className="flex items-center justify-center gap-4 mb-4 md:mb-6">
+              <span className="w-8 md:w-12 h-px bg-purple/40" />
               <span className="text-xs uppercase tracking-[0.25em] font-medium text-purple">Your Paths Forward</span>
-              <span className="w-12 h-px bg-purple/40" />
+              <span className="w-8 md:w-12 h-px bg-purple/40" />
             </motion.div>
             <motion.h2
               variants={fadeUp}
-              className="font-serif text-4xl md:text-5xl lg:text-[4rem] text-black leading-[1.05]"
+              className="font-serif text-3xl md:text-5xl lg:text-[4rem] text-black leading-[1.05]"
             >
               Three paths. One destination.
             </motion.h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-16 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
             {[
               {
                 number: "01",
@@ -295,17 +295,17 @@ export default function Home() {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-60px" }}
                 variants={fadeUp}
-                className="group relative bg-white border border-black/5 p-10 hover:border-purple/40 hover:shadow-2xl transition-all duration-700 flex flex-col justify-between"
+                className="group relative bg-white border border-black/5 p-6 md:p-8 lg:p-10 hover:border-purple/40 hover:shadow-2xl transition-all duration-700 flex flex-col justify-between"
               >
                 <div>
-                  <span className="block font-serif text-5xl text-purple/20 font-light leading-none mb-8 group-hover:text-purple/50 transition-colors duration-700">
+                  <span className="block font-serif text-4xl md:text-5xl text-purple/20 font-light leading-none mb-6 md:mb-8 group-hover:text-purple/50 transition-colors duration-700">
                     {path.number}
                   </span>
-                  <div className="text-[10px] uppercase tracking-[0.25em] font-medium text-purple mb-4">{path.tag}</div>
-                  <h3 className="font-serif text-3xl md:text-4xl text-black mb-6 leading-[1.1]">
+                  <div className="text-[10px] uppercase tracking-[0.25em] font-medium text-purple mb-3 md:mb-4">{path.tag}</div>
+                  <h3 className="font-serif text-2xl md:text-3xl lg:text-4xl text-black mb-4 md:mb-6 leading-[1.1]">
                     {path.title}
                   </h3>
-                  <p className="text-black font-sans text-base leading-[1.8] font-light mb-6">
+                  <p className="text-black font-sans text-sm md:text-base leading-[1.8] font-light mb-6">
                     {path.desc}
                   </p>
                 </div>

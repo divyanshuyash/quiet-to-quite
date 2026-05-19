@@ -52,14 +52,14 @@ export default function Header() {
             : "py-8 bg-white/95 backdrop-blur-sm border-b border-black/5"
         }`}
       >
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 flex items-center justify-between">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-6 lg:px-12 flex items-center justify-between">
           {/* Logo */}
           <Link
             href="/"
             aria-label="Quiet to Quite"
             className="flex items-center transition-opacity duration-500 hover:opacity-80"
           >
-            <span className="relative h-5 w-28 md:h-7 md:w-36">
+            <span className="relative h-5 w-20 md:h-6 md:w-28 lg:h-7 lg:w-36">
               <Image
                 src="/images/quiet-to-quite-logo-cropped.png"
                 alt="Quiet to Quite"
@@ -97,7 +97,7 @@ export default function Header() {
             {/* CTA Button */}
             <Link
               href={hasCompletedAssessment ? "/assessment/result" : "/assessment"}
-              className={`ml-4 px-6 py-2.5 text-xs font-bold uppercase tracking-[0.15em] transition-all duration-300 shadow-sm hover:shadow-md ${
+              className={`ml-2 md:ml-4 px-4 md:px-6 py-2 md:py-2.5 text-xs font-bold uppercase tracking-[0.15em] transition-all duration-300 shadow-sm hover:shadow-md ${
                 !scrolled && isDarkHeroPage
                   ? "bg-white text-black hover:bg-white/90"
                   : "bg-purple text-white hover:bg-purple/90"

@@ -49,36 +49,54 @@ interface TestimonialCardProps {
   position: number;
   testimonial: typeof testimonials[0];
   handleMove: (steps: number) => void;
-  cardSize: number;
+  cardWidth: number;
+  cardHeight: number;
+  isMobile: boolean;
 }
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({ 
   position, 
   testimonial, 
   handleMove, 
-  cardSize 
+  cardWidth,
+  cardHeight,
+  isMobile
 }) => {
   const isCenter = position === 0;
+  
+  // On mobile, we only display the center card and the immediate left/right adjacent cards
+  const isVisible = !isMobile || Math.abs(position) <= 1;
+
+  // Mobile layout metrics for overlapping stacked deck aesthetic
+  const mobileScale = isCenter ? 1 : 0.85;
+  const mobileOpacity = isCenter ? 1 : 0.25;
+  const mobileTranslateX = position * 65; // snug overlapping width
+  const mobileTranslateY = isCenter ? -30 : -10;
+  const mobileRotate = isCenter ? 0 : position * 3.5;
 
   return (
     <div
       onClick={() => handleMove(position)}
       className={cn(
-        "absolute left-1/2 top-1/2 cursor-pointer border p-8 transition-all duration-500 ease-in-out font-sans flex flex-col",
+        "absolute left-1/2 top-1/2 cursor-pointer border p-5 md:p-8 transition-all duration-500 ease-in-out font-sans flex flex-col",
         isCenter 
-          ? "z-10 bg-purple text-white border-purple" 
-          : "z-0 bg-white text-black border-black/10 hover:border-purple/50"
+          ? "z-10 bg-purple text-white border-purple shadow-xl" 
+          : "z-0 bg-white text-black border-black/10 hover:border-purple/50",
+        !isVisible && "opacity-0 pointer-events-none scale-75"
       )}
       style={{
-        width: cardSize,
-        height: cardSize,
+        width: cardWidth,
+        height: cardHeight,
         clipPath: `polygon(50px 0%, calc(100% - 50px) 0%, 100% 50px, 100% 100%, calc(100% - 50px) 100%, 50px 100%, 0 100%, 0 0)`,
-        transform: `
-          translate(-50%, -50%) 
-          translateX(${(cardSize / 1.5) * position}px)
-          translateY(${isCenter ? -65 : position % 2 ? 15 : -15}px)
-          rotate(${isCenter ? 0 : position % 2 ? 2.5 : -2.5}deg)
-        `,
+        transform: isMobile 
+          ? `translate(-50%, -50%) translateX(${mobileTranslateX}px) translateY(${mobileTranslateY}px) scale(${mobileScale}) rotate(${mobileRotate}deg)`
+          : `
+            translate(-50%, -50%) 
+            translateX(${(cardWidth / 1.5) * position}px)
+            translateY(${isCenter ? -65 : position % 2 ? 15 : -15}px)
+            rotate(${isCenter ? 0 : position % 2 ? 2.5 : -2.5}deg)
+          `,
+        opacity: isMobile ? (isVisible ? mobileOpacity : 0) : undefined,
         boxShadow: isCenter ? "0px 8px 0px 4px rgba(112, 47, 138, 0.1)" : "0px 0px 0px 0px transparent"
       }}
     >
@@ -94,38 +112,46 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           height: 1
         }}
       />
-      <div className="relative mb-6 h-16 w-16 grayscale opacity-90 transition-all duration-500 hover:grayscale-0">
+      
+      {/* Avatar Image */}
+      <div className="relative mb-3 h-10 w-10 md:h-16 md:w-16 grayscale opacity-90 transition-all duration-500 hover:grayscale-0 flex-shrink-0">
         <Image
           src={testimonial.imgSrc}
           alt={testimonial.by}
           fill
           className="object-cover object-center"
-          sizes="64px"
+          sizes="(max-width: 768px) 40px, 64px"
         />
         <div 
           className="absolute inset-0 z-[-1]" 
           style={{ boxShadow: isCenter ? "4px 4px 0px rgba(255,255,255,0.2)" : "4px 4px 0px rgba(0,0,0,0.05)" }} 
         />
       </div>
+
+      {/* Testimonial Quote */}
       <h3 className={cn(
-        "text-lg lg:text-xl font-serif font-bold mb-auto leading-relaxed",
+        "text-[12px] xs:text-[13.5px] md:text-lg lg:text-xl font-serif font-bold mb-auto leading-relaxed",
         isCenter ? "text-white" : "text-black"
       )}>
         {testimonial.testimonial}
       </h3>
+
+      {/* Author Details */}
       <div className={cn(
-        "mt-6 flex flex-col gap-1",
-        isCenter ? "text-white/80" : "text-black/60"
+        "mt-3 flex flex-col gap-0.5 border-t pt-2.5 md:pt-4 flex-shrink-0",
+        isCenter ? "text-white/80 border-white/10" : "text-black/60 border-black/5"
       )}>
-        <p className="font-bold text-xs uppercase tracking-[0.2em]">{testimonial.by}</p>
-        <p className="text-[10px] uppercase tracking-widest">{testimonial.role}</p>
+        <p className="font-bold text-[10px] md:text-xs uppercase tracking-[0.2em]">{testimonial.by}</p>
+        <p className="text-[8px] md:text-[10px] uppercase tracking-widest leading-normal">{testimonial.role}</p>
       </div>
     </div>
   );
 };
 
 export const StaggerTestimonials: React.FC = () => {
-  const [cardSize, setCardSize] = useState(365);
+  const [cardWidth, setCardWidth] = useState(280);
+  const [cardHeight, setCardHeight] = useState(220);
+  const [isMobile, setIsMobile] = useState(true);
   const [testimonialsList, setTestimonialsList] = useState(testimonials);
 
   const handleMove = (steps: number) => {
@@ -148,8 +174,35 @@ export const StaggerTestimonials: React.FC = () => {
 
   useEffect(() => {
     const updateSize = () => {
-      const { matches } = window.matchMedia("(min-width: 640px)");
-      setCardSize(matches ? 380 : 300);
+      if (typeof window === 'undefined') return;
+      
+      const isLg = window.matchMedia("(min-width: 1024px)").matches;
+      const isMd = window.matchMedia("(min-width: 768px)").matches;
+      const isSm = window.matchMedia("(min-width: 640px)").matches;
+      
+      let width = 280;
+      let height = 220;
+      let mobile = true;
+
+      if (isSm) {
+        width = 300;
+        height = 300;
+        mobile = false;
+      }
+      if (isMd) {
+        width = 340;
+        height = 340;
+        mobile = false;
+      }
+      if (isLg) {
+        width = 380;
+        height = 380;
+        mobile = false;
+      }
+      
+      setCardWidth(width);
+      setCardHeight(height);
+      setIsMobile(mobile);
     };
 
     updateSize();
@@ -159,8 +212,8 @@ export const StaggerTestimonials: React.FC = () => {
 
   return (
     <div
-      className="relative w-full overflow-hidden bg-transparent"
-      style={{ height: 600 }}
+      className="relative w-full overflow-hidden bg-transparent px-4 animate-in fade-in duration-700"
+      style={{ height: isMobile ? 310 : 600 }}
     >
       {testimonialsList.map((testimonial, index) => {
         const position = testimonialsList.length % 2
@@ -172,32 +225,34 @@ export const StaggerTestimonials: React.FC = () => {
             testimonial={testimonial}
             handleMove={handleMove}
             position={position}
-            cardSize={cardSize}
+            cardWidth={cardWidth}
+            cardHeight={cardHeight}
+            isMobile={isMobile}
           />
         );
       })}
-      <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-4">
+      <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2 md:gap-4">
         <button
           onClick={() => handleMove(-1)}
           className={cn(
-            "flex h-12 w-12 items-center justify-center transition-all duration-300",
+            "flex h-10 w-10 md:h-12 md:w-12 items-center justify-center transition-all duration-300",
             "bg-white border border-black/10 text-black hover:border-purple hover:text-purple shadow-sm",
             "focus-visible:outline-none"
           )}
           aria-label="Previous testimonial"
         >
-          <ChevronLeft className="w-5 h-5" strokeWidth={1.5} />
+          <ChevronLeft className="w-4 h-4 md:w-5 md:h-5" strokeWidth={1.5} />
         </button>
         <button
           onClick={() => handleMove(1)}
           className={cn(
-            "flex h-12 w-12 items-center justify-center transition-all duration-300",
+            "flex h-10 w-10 md:h-12 md:w-12 items-center justify-center transition-all duration-300",
             "bg-white border border-black/10 text-black hover:border-purple hover:text-purple shadow-sm",
             "focus-visible:outline-none"
           )}
           aria-label="Next testimonial"
         >
-          <ChevronRight className="w-5 h-5" strokeWidth={1.5} />
+          <ChevronRight className="w-4 h-4 md:w-5 md:h-5" strokeWidth={1.5} />
         </button>
       </div>
     </div>

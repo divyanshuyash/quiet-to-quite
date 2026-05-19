@@ -83,22 +83,21 @@ export default function Services() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-purple/[0.04] blur-[120px] rounded-full" />
         </div>
 
-        <div className="relative z-10 max-w-[1400px] mx-auto section-px pt-32 lg:pt-40 pb-12 text-center md:text-left">
+        <div className="relative z-10 max-w-[1400px] mx-auto section-px pt-24 md:pt-32 lg:pt-40 pb-8 md:pb-12 text-center md:text-left">
           <motion.div initial="hidden" animate="visible" variants={stagger} className="max-w-4xl mx-auto md:mx-0">
-            <motion.div variants={fadeUp} className="flex items-center justify-center md:justify-start gap-4 mb-8">
-              <span className="w-12 h-px bg-purple/40" />
+            <motion.div variants={fadeUp} className="flex items-center justify-center md:justify-start gap-4 mb-4 md:mb-8">
+              <span className="w-8 md:w-12 h-px bg-purple/40" />
               <span className="text-xs uppercase tracking-[0.3em] font-medium text-purple">Work With Jayita</span>
             </motion.div>
             <motion.h1
               variants={fadeUp}
-              className="font-serif text-5xl md:text-6xl lg:text-[6rem] text-black leading-[1.05] tracking-tight mb-6"
+              className="font-serif text-4xl md:text-6xl lg:text-[6rem] text-black leading-[1.05] tracking-tight mb-4 md:mb-6"
             >
               The Path to Visibility.
             </motion.h1>
             <motion.p
               variants={fadeUp}
-              className="font-sans text-xl md:text-2xl text-black max-w-xl font-light leading-relaxed"
-            >
+              className="font-sans text-base md:text-xl lg:text-2xl text-black max-w-xl font-light leading-relaxed">
               Become impossible to overlook, on your own terms.
             </motion.p>
           </motion.div>
@@ -106,8 +105,8 @@ export default function Services() {
       </section>
 
       {/* ── SERVICES ── */}
-      <section className="py-8 md:py-6 px-6 md:px-12 lg:px-24 bg-white">
-        <div className="max-w-[1400px] mx-auto space-y-12 lg:space-y-16">
+      <section className="py-8 md:py-6 px-4 md:px-12 lg:px-24 bg-white">
+        <div className="max-w-[1400px] mx-auto space-y-8 lg:space-y-16">
           {services.map((s, i) => (
             <motion.div
               key={i}
@@ -115,7 +114,7 @@ export default function Services() {
               whileInView="visible"
               viewport={{ once: true, margin: "-80px" }}
               variants={stagger}
-              className={`grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center`}
+              className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 items-center`}
             >
               {/* Visual Frame */}
               <motion.div
@@ -140,34 +139,34 @@ export default function Services() {
                 variants={fadeUp}
                 className={`flex flex-col justify-center ${s.side === "right" ? "lg:order-1 lg:pr-12" : "lg:pl-12"}`}
               >
-                <div className="flex items-center gap-4 mb-8">
-                  <span className="w-8 h-px bg-purple/40" />
+                <div className="flex items-center gap-4 mb-6 md:mb-8">
+                  <span className="w-6 md:w-8 h-px bg-purple/40" />
                   <span className="text-[10px] uppercase tracking-[0.25em] font-medium text-purple">{s.tag}</span>
                 </div>
-                <h2 className="font-serif text-4xl md:text-5xl lg:text-[3.5rem] text-black mb-4 leading-[1.05]">
+                <h2 className="font-serif text-2xl md:text-5xl lg:text-[3.5rem] text-black mb-2 md:mb-4 leading-[1.05]">
                   {s.title}
                 </h2>
-                <p className="text-base font-sans text-purple/80 mb-6 tracking-widest uppercase font-medium">{s.subtitle}</p>
+                <p className="text-xs md:text-base font-sans text-purple/80 mb-4 md:mb-6 tracking-widest uppercase font-medium">{s.subtitle}</p>
 
-                <p className="font-sans text-black text-lg leading-[1.85] font-light max-w-xl mb-6">
+                <p className="font-sans text-black text-sm md:text-lg leading-[1.8] md:leading-[1.85] font-light max-w-xl mb-6">
                   {s.description}
                 </p>
 
                 {/* Features */}
-                <ul className="space-y-4 mb-8">
+                <ul className="space-y-3 md:space-y-4 mb-6 md:mb-8">
                   {s.features.map((f) => (
-                    <li key={f} className="flex items-start gap-4 text-sm text-black font-light">
-                      <span className="text-purple mt-1 text-[10px]">◆</span>
+                    <li key={f} className="flex items-start gap-3 md:gap-4 text-xs md:text-sm text-black font-light">
+                      <span className="text-purple mt-0.5 md:mt-1 text-[10px]">◆</span>
                       <span className="leading-relaxed">{f}</span>
                     </li>
                   ))}
                 </ul>
 
                 {/* CTA */}
-                <div className="flex flex-col sm:flex-row sm:items-center gap-8">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-6 md:gap-8">
                   <Link
                     href={s.href}
-                    className="group inline-flex items-center gap-4 bg-purple hover:bg-black text-white px-10 py-5 text-xs font-bold uppercase tracking-[0.2em] transition-all duration-500 shadow-xl"
+                    className="group inline-flex items-center gap-4 bg-purple hover:bg-black text-white px-6 md:px-10 py-3 md:py-5 text-xs font-bold uppercase tracking-[0.2em] transition-all duration-500 shadow-xl"
                   >
                     {s.cta}
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="transition-transform duration-500 group-hover:translate-x-1.5">
@@ -182,31 +181,31 @@ export default function Services() {
       </section>
 
       {/* ── FAQ / COMMITMENT ── */}
-      <section className="py-6 px-6 bg-white border-t border-black/5">
+      <section className="py-6 md:py-8 px-4 md:px-6 bg-white border-t border-black/5">
         <div className="max-w-3xl mx-auto">
           <motion.div
-            className="text-center mb-6"
+            className="text-center mb-4 md:mb-6"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
             variants={stagger}
           >
-            <motion.div variants={fadeUp} className="flex items-center justify-center gap-4 mb-8">
-              <span className="w-12 h-px bg-purple/40" />
+            <motion.div variants={fadeUp} className="flex items-center justify-center gap-4 mb-4 md:mb-8">
+              <span className="w-8 md:w-12 h-px bg-purple/40" />
               <span className="text-xs uppercase tracking-[0.25em] font-medium text-purple">Not Sure Where to Start?</span>
-              <span className="w-12 h-px bg-purple/40" />
+              <span className="w-8 md:w-12 h-px bg-purple/40" />
             </motion.div>
-            <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-5xl lg:text-[4rem] text-black mb-8 leading-[1.05]">
+            <motion.h2 variants={fadeUp} className="font-serif text-2xl md:text-5xl lg:text-[4rem] text-black mb-4 md:mb-8 leading-[1.05]">
               Get your assessment first.
             </motion.h2>
-            <motion.p variants={fadeUp} className="text-black text-lg font-light leading-[1.9] mb-6">
+            <motion.p variants={fadeUp} className="text-black text-sm md:text-lg font-light leading-[1.8] md:leading-[1.9] mb-4 md:mb-6 px-2">
               Our 7-question diagnostic will identify your unique visibility gap and point
               you toward the right path, in under 2 minutes.
             </motion.p>
             <motion.div variants={fadeUp}>
               <Link
                 href="/assessment"
-                className="group inline-flex items-center gap-4 bg-purple hover:bg-black text-white px-12 py-5 text-xs font-bold uppercase tracking-[0.2em] transition-all duration-500 shadow-xl"
+                className="group inline-flex items-center gap-4 bg-purple hover:bg-black text-white px-6 md:px-12 py-3 md:py-5 text-xs font-bold uppercase tracking-[0.2em] transition-all duration-500 shadow-xl"
               >
                 Start the Free Assessment
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="transition-transform duration-500 group-hover:translate-x-1.5">
