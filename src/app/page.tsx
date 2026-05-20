@@ -272,21 +272,21 @@ export default function Home() {
                 title: "High-Touch 1:1",
                 tag: "Start Here",
                 desc: "Begin with a complimentary 45-minute leadership coaching call to clarify your goals and next steps.",
-                href: "https://elevate.quiettoquite.com/web/lite/events/69ce103a8a93be6046808486",
+                href: "/services#high-touch-1-1",
               },
               {
                 number: "02",
                 title: "Quiet Authority Reset",
                 tag: "Core Program",
                 desc: "A focused reset to align how you see yourself and how others see you, so visibility matches performance.",
-                href: "https://elevate.quiettoquite.com/web/courses",
+                href: "/services#quiet-authority-reset",
               },
               {
                 number: "03",
                 title: "Perception Reset",
                 tag: "Focused Session",
                 desc: "See your career through a new lens and decode the system that shapes leadership perception.",
-                href: "https://elevate.quiettoquite.com/l/5246e16263",
+                href: "/services#perception-reset",
               },
             ].map((path, i) => (
               <motion.div

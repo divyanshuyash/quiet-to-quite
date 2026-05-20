@@ -20,6 +20,7 @@ const stagger = {
 
 const services = [
   {
+    id: "high-touch-1-1",
     number: "01",
     tag: "Start Here",
     title: "High-Touch 1:1",
@@ -37,6 +38,7 @@ const services = [
     image: "/images/service_advisory.png",
   },
   {
+    id: "quiet-authority-reset",
     number: "02",
     tag: "Core Program",
     title: "Quiet Authority Reset",
@@ -54,6 +56,7 @@ const services = [
     image: "/images/service_reset.png",
   },
   {
+    id: "perception-reset",
     number: "03",
     tag: "Focused Session",
     title: "Perception Reset",
@@ -110,11 +113,12 @@ export default function Services() {
           {services.map((s, i) => (
             <motion.div
               key={i}
+              id={s.id}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-80px" }}
               variants={stagger}
-              className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 items-center`}
+              className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 items-center scroll-mt-28`}
             >
               {/* Visual Frame */}
               <motion.div

@@ -233,7 +233,7 @@ export default function AssessmentResult() {
 
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <Link
-              href="/services"
+              href="/services#quiet-authority-reset"
               id="assessment-result-cta"
               className="group inline-flex items-center gap-4 bg-purple hover:bg-black text-white px-12 py-5 text-xs font-bold uppercase tracking-[0.2em] transition-all duration-500 shadow-xl"
             >
@@ -243,7 +243,7 @@ export default function AssessmentResult() {
               </svg>
             </Link>
             <Link
-              href="/services#path-two"
+              href="/services#high-touch-1-1"
               className="group inline-flex items-center gap-3 text-black hover:text-purple text-xs uppercase tracking-[0.2em] font-medium transition-colors duration-400 border-b border-black/20 hover:border-purple pb-1"
             >
               Explore 1:1 Advisory
