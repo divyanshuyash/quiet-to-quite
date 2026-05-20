@@ -68,7 +68,7 @@ const services = [
     cta: "Start Perception Reset",
     href: "https://elevate.quiettoquite.com/l/5246e16263",
     side: "left",
-    image: "/images/jayita-portrait.png",
+    image: "/images/editorial_portrait.png",
   },
 ];
 
