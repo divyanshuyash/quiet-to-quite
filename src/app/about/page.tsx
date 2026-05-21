@@ -35,7 +35,7 @@ const values = [
   {
     icon: "◈",
     title: "Zero Performance Required",
-    body: "Your introversion is a strategic asset, not a liability. We never ask you to fake extroversion.",
+    body: "Your quiet nature is a strategic asset, not a liability. We never ask you to fake extroversion.",
   },
   {
     icon: "◈",

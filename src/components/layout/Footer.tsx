@@ -31,7 +31,7 @@ export default function Footer() {
                 </span>
               </Link>
               <p className="text-black text-xs md:text-sm lg:text-base max-w-sm font-light leading-relaxed mb-4 md:mb-6">
-                For high-performing, introverted women who deliver exceptional results
+                For high-performing, quiet women who deliver exceptional results
                 but get passed over. Become impossible to overlook.
               </p>
             </div>

@@ -166,7 +166,7 @@ export default function Assessment() {
                     <div className="absolute inset-0 border-t-2 border-purple rounded-full animate-spin" style={{ animationDuration: "1.5s" }} />
                   </div>
                   <h2 className="font-serif text-3xl md:text-4xl text-black mb-4">Synthesizing your responses…</h2>
-                  <p className="text-xs uppercase tracking-[0.25em] font-medium text-black">Identifying your unique visibility gaps</p>
+                  <p className="text-xs uppercase tracking-[0.25em] font-medium text-black">Identifying your unique perception gaps</p>
                 </motion.div>
               ) : (
                 <motion.div

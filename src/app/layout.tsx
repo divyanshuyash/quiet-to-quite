@@ -3,6 +3,7 @@ import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import CursorGlow from "@/components/layout/CursorGlow";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -21,10 +22,10 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Quiet to Quite™ | Leadership Visibility for Introverted Women",
+  title: "Quiet to Quite™ | Leadership Visibility for Quiet Women",
   description:
-    "Stop being overlooked. Build strategic visibility on your own terms. Expert coaching for high-performing introverted women ready for the next level.",
-  keywords: ["leadership coaching", "introverted women", "executive presence", "visibility strategy", "career advancement"],
+    "Stop being overlooked. Build strategic visibility on your own terms. Expert coaching for high-performing quiet women ready for the next level.",
+  keywords: ["leadership coaching", "quiet women", "executive presence", "visibility strategy", "career advancement"],
   openGraph: {
     title: "Quiet to Quite™ | Leadership Visibility",
     description: "Confidence is overrated. Signal clarity is everything.",
@@ -42,6 +43,7 @@ export default function RootLayout({
       <body className="antialiased bg-white text-black min-h-screen flex flex-col font-sans selection:bg-purple/20">
         <Header />
         <main className="flex-1 flex flex-col">
+          <CursorGlow />
           {children}
         </main>
         <Footer />

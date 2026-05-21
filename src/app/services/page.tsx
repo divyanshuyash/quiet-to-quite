@@ -20,11 +20,29 @@ const stagger = {
 
 const services = [
   {
-    id: "high-touch-1-1",
+    id: "quiet-authority-reset",
     number: "01",
+    tag: "Core Program",
+    title: "Self-Learning",
+    subtitle: "Quiet Authority",
+    description:
+      "A focused reset to align how you see yourself and how others see you, so perception matches performance.",
+    features: [
+      "Reframe perception gaps",
+      "Clarify leadership narrative and positioning",
+      "Create a practical next-step perception plan",
+    ],
+    cta: "Explore Quiet Authority",
+    href: "https://elevate.quiettoquite.com/web/courses",
+    side: "left",
+    image: "/images/service_reset.png",
+  },
+  {
+    id: "high-touch-1-1",
+    number: "02",
     tag: "Start Here",
-    title: "High-Touch 1:1",
-    subtitle: "Complimentary Leadership Coaching Call",
+    title: "1:1 Coaching",
+    subtitle: "High-Touch Guidance",
     description:
       "Always begin with a complimentary 45-minute call with Jayita to clarify your leadership goals and the support you need next.",
     features: [
@@ -34,33 +52,15 @@ const services = [
     ],
     cta: "Book the Complimentary Call",
     href: "https://elevate.quiettoquite.com/web/lite/events/69ce103a8a93be6046808486",
-    side: "left",
-    image: "/images/service_advisory.png",
-  },
-  {
-    id: "quiet-authority-reset",
-    number: "02",
-    tag: "Core Program",
-    title: "Quiet Authority Reset",
-    subtitle: "Leadership Perception Reset",
-    description:
-      "A focused reset to align how you see yourself and how others see you, so visibility matches performance.",
-    features: [
-      "Reframe perception and visibility gaps",
-      "Clarify leadership narrative and positioning",
-      "Create a practical next-step visibility plan",
-    ],
-    cta: "Explore Quiet Authority Reset",
-    href: "https://elevate.quiettoquite.com/web/courses",
     side: "right",
-    image: "/images/service_reset.png",
+    image: "/images/service_advisory.png",
   },
   {
     id: "perception-reset",
     number: "03",
     tag: "Focused Session",
-    title: "Perception Reset",
-    subtitle: "See Your Career Clearly",
+    title: "Group Coaching",
+    subtitle: "Perception Reset",
     description:
       "Step back and see your career through a new lens, understand why performance alone does not drive growth, and decode the system.",
     features: [
@@ -203,7 +203,7 @@ export default function Services() {
               Get your assessment first.
             </motion.h2>
             <motion.p variants={fadeUp} className="text-black text-sm md:text-lg font-light leading-[1.8] md:leading-[1.9] mb-4 md:mb-6 px-2">
-              Our 7-question diagnostic will identify your unique visibility gap and point
+              Our 7-question diagnostic will identify your unique perception gap and point
               you toward the right path, in under 2 minutes.
             </motion.p>
             <motion.div variants={fadeUp}>

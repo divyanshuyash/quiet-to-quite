@@ -33,7 +33,7 @@ const insights = [
   },
   {
     icon: "◆",
-    title: "The Introvert Advantage",
+    title: "The Quiet Advantage",
     body: "Your depth, precision, and ability to synthesize are strategic assets—when positioned correctly.",
   },
 ];
@@ -123,7 +123,7 @@ export default function AssessmentResult() {
               <span className="w-12 h-px bg-purple/40" />
             </motion.div>
             <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-5xl lg:text-[4rem] text-black leading-[1.05]">
-              Three insights about your visibility gap.
+              Three insights about your perception gap.
             </motion.h2>
           </motion.div>
 
