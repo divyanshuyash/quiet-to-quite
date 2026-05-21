@@ -122,10 +122,9 @@ export default function Home() {
           {/* Subheadline */}
           <motion.p
             variants={fadeUp}
-            className="font-sans text-lg md:text-xl text-black/80 max-w-2xl mx-auto mb-10 leading-[1.8] font-light"
+            className="font-sans text-lg md:text-xl text-black/80 max-w-3xl mx-auto mb-10 leading-[1.8] font-light"
           >
-            Become the go-to choice for leadership, all while being unapologetically yourself.
-            Be recognized as leadership-ready and not just the reliable executor.
+            For mid-career women who are perceived as quiet—whether introverted or naturally reserved at work settings. Become the go-to choice for leadership and be recognized as leadership-ready, not just the reliable executor.
           </motion.p>
 
           {/* CTAs */}
