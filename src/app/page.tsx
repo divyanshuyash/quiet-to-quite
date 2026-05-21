@@ -365,6 +365,100 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── SERVICES / PATHS PREVIEW ── */}
+      <section className="py-10 md:py-16 px-4 md:px-12 lg:px-24 bg-white border-t border-black/5">
+        <div className="max-w-[1400px] mx-auto">
+          <motion.div
+            className="text-center mb-10 md:mb-12"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={stagger}
+          >
+            <motion.div variants={fadeUp} className="flex items-center justify-center gap-4 mb-6">
+              <motion.span initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="w-8 md:w-12 h-px bg-purple/40 origin-left" />
+              <span className="text-xs uppercase tracking-[0.25em] font-medium text-purple">Your Paths Forward</span>
+              <motion.span initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="w-8 md:w-12 h-px bg-purple/40 origin-right" />
+            </motion.div>
+            <motion.h2
+              variants={fadeUp}
+              className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[4rem] text-black leading-[1.05]"
+            >
+              Three paths. One destination.
+            </motion.h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-16 max-w-6xl mx-auto">
+            {[
+              {
+                number: "01",
+                title: "1:1 Coaching",
+                tag: "High-Touch Advisory",
+                desc: "Begin with a complimentary 45-minute leadership coaching call to clarify your goals and next steps.",
+                href: "/services#high-touch-1-1",
+              },
+              {
+                number: "02",
+                title: "Self-Learning",
+                tag: "Quiet Authority",
+                desc: "A focused reset to align how you see yourself and how others see you, so visibility matches performance.",
+                href: "/services#quiet-authority-reset",
+              },
+              {
+                number: "03",
+                title: "Group Coaching",
+                tag: "Perception Reset",
+                desc: "See your career through a new lens and decode the system that shapes leadership perception.",
+                href: "/services#perception-reset",
+              },
+            ].map((path, i) => (
+              <motion.div
+                key={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-60px" }}
+                variants={fadeUp}
+                className="group relative bg-white border border-black/5 p-8 md:p-10 hover:border-purple/40 hover:shadow-2xl transition-all duration-700 flex flex-col justify-between"
+              >
+                <div>
+                  <span className="block font-serif text-4xl md:text-5xl text-purple/20 font-light leading-none mb-8 group-hover:text-purple/50 group-hover:-translate-y-1 group-hover:scale-110 origin-left transition-all duration-700">
+                    {path.number}
+                  </span>
+                  <div className="text-[10px] uppercase tracking-[0.25em] font-medium text-purple mb-4">{path.tag}</div>
+                  <h3 className="font-serif text-2xl md:text-3xl text-black mb-6 leading-[1.1]">
+                    {path.title}
+                  </h3>
+                  <p className="text-black/80 font-sans text-sm md:text-base leading-[1.8] font-light mb-6">
+                    {path.desc}
+                  </p>
+                </div>
+                <div className="flex items-center justify-start border-t border-black/5 pt-8 mt-auto">
+                  <Link
+                    href={path.href}
+                    className="group/link inline-flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.25em] text-black hover:text-purple transition-colors duration-400"
+                  >
+                    <span className="border-b border-black/20 group-hover/link:border-purple pb-1 transition-colors duration-400">
+                      Learn More
+                    </span>
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      className="transition-transform duration-400 group-hover/link:translate-x-1"
+                    >
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── THE SUCCESS ── */}
       <section className="py-10 md:py-16 px-4 md:px-12 bg-white">
         <div className="max-w-5xl mx-auto">
